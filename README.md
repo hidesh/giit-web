@@ -1,38 +1,38 @@
 # 🌐 Girls in IT – Event Platform
 
-Et moderne fullstack-projekt, der forbinder teknologi med empowerment. Denne platform er skabt til at vise og administrere events, hosts og deres indhold – med fokus på design, skalerbarhed og datasikkerhed.
+A modern fullstack project that connects technology with empowerment. This platform is created to showcase and manage events, hosts, and their content – with a focus on design, scalability, and data security.
 
 ---
 
-## 🔧 Teknologistack
+## 🔧 Technology Stack
 
-| Lag | Teknologi | Beskrivelse |
-|-----|-----------|-------------|
-| Frontend | Nuxt 3 (Vue.js) + Tailwind CSS | SEO-venlig, komponentbaseret og mobiloptimeret UI |
-| Backend | Directus (Docker container) | Headless CMS med REST/GraphQL, roles & permissions |
-| Database | SQLite | Simpel og embedded til udviklingsbrug |
-| Deployment | Docker | Containerized setup for lokal eller cloud drift |
-| Auth | Supabase Auth | Brugergodkendelse til frontend med sessionhåndtering |
+| Layer | Technology | Description |
+|-------|------------|-------------|
+| Frontend | Nuxt 3 (Vue.js) + Tailwind CSS | SEO-friendly, component-based, and mobile-optimized UI |
+| Backend | Directus (Docker container) | Headless CMS with REST/GraphQL, roles & permissions |
+| Database | SQLite | Simple and embedded for development use |
+| Deployment | Docker | Containerized setup for local or cloud operation |
+| Auth | Supabase Auth | User authentication for frontend with session management |
 
 ---
 
-## 📁 Projektstruktur
+## 📁 Project Structure
 
 ```
-giit-web/          # Fullstack-eventplatform med Nuxt 3 og Directus
+giit-web/          # Fullstack event platform with Nuxt 3 and Directus
 ├── frontend/          # Nuxt 3 + Tailwind frontend
 │   ├── components/
 │   ├── pages/
 │   └── assets/
-├── backend/           # Directus backend med docker-compose
+├── backend/           # Directus backend with docker-compose
 │   ├── docker-compose.yml
-│   └── data/          # SQLite-database bind mount
+│   └── data/          # SQLite database bind mount
 └── README.md
 ```
 
 ---
 
-## 🧠 Arkitekturdiagram (tekstversion)
+## 🧠 Architecture Diagram (text version)
 
 ```mermaid
 graph TD
@@ -44,11 +44,11 @@ graph TD
 
 ---
 
-## 🚀 Kom i gang
+## 🚀 Getting Started
 
-1. **Clone projektet**
+1. **Clone the project**
 ```bash
-git clone https://github.com/din-bruger/giit-platform.git
+git clone https://github.com/your-user/giit-platform.git
 cd giit-platform
 ```
 
@@ -66,19 +66,19 @@ npm install
 npm run dev
 ```
 
-4. Gå til `http://localhost:3000` og se din platform i aktion!
+4. Go to `http://localhost:3000` and see your platform in action!
 
 ---
 
-## 🔑 Brugergodkendelse (Auth)
+## 🔑 User Authentication (Auth)
 
-Platformen anvender **Supabase Auth** til brugergodkendelse og sessioner på frontend.
+The platform uses **Supabase Auth** for user authentication and sessions on the frontend.
 
-- Login og session-håndtering sker via `@supabase/auth-helpers-nuxt`
-- Tokens gemmes sikkert i cookies via SSR-friendly strategi
-- Mulighed for at oprette konto, logge ind, samt beskytte admin-ruter
+- Login and session management happen via `@supabase/auth-helpers-nuxt`
+- Tokens are securely stored in cookies using an SSR-friendly strategy
+- Ability to create accounts, log in, and protect admin routes
 
-Eksempel på integration:
+Example integration:
 ```ts
 const client = useSupabaseClient()
 const user = useSupabaseUser()
@@ -87,36 +87,36 @@ await client.auth.signInWithPassword({ email, password })
 
 ---
 
-## 🔐 Sikkerhed
+## 🔐 Security
 
-- `.env`-filer er udelukket med `.gitignore`
-- Følsomme oplysninger (admin-passwords, API-nøgler) er environment-specifikke
-- Offentlig repo-friendly (ingen credentials eksponeret)
-- CORS er kun åbnet til `localhost:3000` under udvikling
-- Supabase sessioner håndteres via `auth-helpers` og er beskyttet mod XSS og CSRF
+- `.env` files are excluded with `.gitignore`
+- Sensitive information (admin passwords, API keys) are environment-specific
+- Public repo-friendly (no credentials exposed)
+- CORS is only opened to `localhost:3000` during development
+- Supabase sessions are handled via `auth-helpers` and protected against XSS and CSRF
 
 ---
 
-## 📸 Billeder & Ressourcer
+## 📸 Images & Resources
 
-| Element        | Beskrivelse                             |
+| Element        | Description                             |
 |----------------|-----------------------------------------|
-| 🎨 Logo        | Specialdesignet SVG logo                |
-| 📷 Host-billeder | Gemmes som Directus asset (PNG)       |
-| 🖼️ Event-billeder | Understøtter full-width + gradient overlay |
-| 🎚️ UI Design   | Tailwind utility-classes + dark mode support |
+| 🎨 Logo        | Custom-designed SVG logo                |
+| 📷 Host images | Stored as Directus assets (PNG)         |
+| 🖼️ Event images | Supports full-width + gradient overlay |
+| 🎚️ UI Design   | Tailwind utility classes + dark mode support |
 
 ---
 
-## 💡 Formål
+## 💡 Purpose
 
-At skabe en platform der:
+To create a platform that:
 
-- 💻 Lærer moderne webteknologi via praksis
-- 🎤 Fremhæver kvindelige værter i tech
-- 📅 Promoverer events med god brugeroplevelse
-- 📦 Er nem at vedligeholde og videreudvikle
+- 💻 Teaches modern web technology through practice
+- 🎤 Highlights female hosts in tech
+- 📅 Promotes events with great user experience
+- 📦 Is easy to maintain and further develop
 
 ---
 
-> Skabt med af Hidesh Kumar!
+> Created by me - Hidesh Kumar!
