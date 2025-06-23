@@ -1,4 +1,3 @@
-
 # 🌐 Girls in IT – Event Platform
 
 Et moderne fullstack-projekt, der forbinder teknologi med empowerment. Denne platform er skabt til at vise og administrere events, hosts og deres indhold – med fokus på design, skalerbarhed og datasikkerhed.
@@ -13,13 +12,14 @@ Et moderne fullstack-projekt, der forbinder teknologi med empowerment. Denne pla
 | Backend | Directus (Docker container) | Headless CMS med REST/GraphQL, roles & permissions |
 | Database | SQLite | Simpel og embedded til udviklingsbrug |
 | Deployment | Docker | Containerized setup for lokal eller cloud drift |
+| Auth | Supabase Auth | Brugergodkendelse til frontend med sessionhåndtering |
 
 ---
 
 ## 📁 Projektstruktur
 
 ```
-big_projects/
+giit-web/          # Fullstack-eventplatform med Nuxt 3 og Directus
 ├── frontend/          # Nuxt 3 + Tailwind frontend
 │   ├── components/
 │   ├── pages/
@@ -70,12 +70,30 @@ npm run dev
 
 ---
 
+## 🔑 Brugergodkendelse (Auth)
+
+Platformen anvender **Supabase Auth** til brugergodkendelse og sessioner på frontend.
+
+- Login og session-håndtering sker via `@supabase/auth-helpers-nuxt`
+- Tokens gemmes sikkert i cookies via SSR-friendly strategi
+- Mulighed for at oprette konto, logge ind, samt beskytte admin-ruter
+
+Eksempel på integration:
+```ts
+const client = useSupabaseClient()
+const user = useSupabaseUser()
+await client.auth.signInWithPassword({ email, password })
+```
+
+---
+
 ## 🔐 Sikkerhed
 
 - `.env`-filer er udelukket med `.gitignore`
 - Følsomme oplysninger (admin-passwords, API-nøgler) er environment-specifikke
 - Offentlig repo-friendly (ingen credentials eksponeret)
 - CORS er kun åbnet til `localhost:3000` under udvikling
+- Supabase sessioner håndteres via `auth-helpers` og er beskyttet mod XSS og CSRF
 
 ---
 
